@@ -877,6 +877,7 @@ function closeMobileMenu() {
   document.body.classList.remove("menu-open");
   menuBtn.textContent = "☰";
   menuBtn.setAttribute("aria-label", "Open menu");
+  menuBtn.setAttribute("aria-expanded", "false");
 }
 
 function openMobileMenu() {
@@ -885,6 +886,7 @@ function openMobileMenu() {
   document.body.classList.add("menu-open");
   menuBtn.textContent = "✕";
   menuBtn.setAttribute("aria-label", "Close menu");
+  menuBtn.setAttribute("aria-expanded", "true");
 }
 
 if (menuBtn && navLinks) {
@@ -903,14 +905,14 @@ if (menuBtn && navLinks) {
   });
 
   document.addEventListener("click", e => {
-    if (window.innerWidth > 768) return;
+    if (window.innerWidth > 1024) return;
     if (!navLinks.classList.contains("show") && !navLinks.classList.contains("active")) return;
     if (navLinks.contains(e.target) || menuBtn.contains(e.target)) return;
     closeMobileMenu();
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) closeMobileMenu();
+    if (window.innerWidth > 1024) closeMobileMenu();
   });
 }
 
