@@ -8,6 +8,7 @@ const cursorGlow = document.getElementById("cursorGlow");
 
 window.addEventListener("load", () => {
   setTimeout(() => {
+    if (!loader) return;
     loader.style.opacity = "0";
     loader.style.pointerEvents = "none";
     setTimeout(() => loader.style.display = "none", 400);
@@ -596,9 +597,6 @@ function blogPage() {
 
         <div class="grid-3" id="blogGrid"></div>
 
-        <div class="pagination">
-          <button>1</button><button>2</button><button>3</button>
-        </div>
       </section>
 
       <section class="cta">
@@ -741,8 +739,27 @@ setInterval(nextTestimonial, 4500);
 
 function setPricing(value) {
   yearly = value;
-  renderPage();
+
+  const pricingToggle = document.querySelector(".pricing-toggle");
+  if (!pricingToggle) return;
+
+  const oldCards = pricingToggle.nextElementSibling;
+  if (oldCards) {
+    oldCards.outerHTML = pricingCards();
+  }
+
+  const buttons = pricingToggle.querySelectorAll("button");
+  buttons.forEach(btn => btn.classList.remove("active"));
+
+  if (buttons[yearly ? 1 : 0]) {
+    buttons[yearly ? 1 : 0].classList.add("active");
+  }
+
+  setTimeout(() => {
+    revealElements();
+  }, 50);
 }
+
 
 
 function notFoundPage() {
@@ -779,8 +796,7 @@ function renderPage() {
     link.classList.toggle("active", link.getAttribute("href") === `#${route}`);
   });
 
-  navLinks.classList.remove("show");
-  menuBtn.textContent = "☰";
+  closeMobileMenu();
 
   setTimeout(() => {
     revealElements();
@@ -880,21 +896,23 @@ if (menuBtn && navLinks) {
   });
 }
 
-themeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
 
-  if (document.body.classList.contains("dark")) {
+    if (document.body.classList.contains("dark")) {
+      themeToggle.textContent = "☀️";
+      localStorage.setItem("theme", "dark");
+    } else {
+      themeToggle.textContent = "🌙";
+      localStorage.setItem("theme", "light");
+    }
+  });
+
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
     themeToggle.textContent = "☀️";
-    localStorage.setItem("theme", "dark");
-  } else {
-    themeToggle.textContent = "🌙";
-    localStorage.setItem("theme", "light");
   }
-});
-
-if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark");
-  themeToggle.textContent = "☀️";
 }
 
 window.addEventListener("hashchange", renderPage);
@@ -903,9 +921,12 @@ window.addEventListener("scroll", () => {
   revealElements();
 
   const height = document.documentElement.scrollHeight - window.innerHeight;
-  progressBar.style.width = `${(window.scrollY / height) * 100}%`;
+  if (progressBar && height > 0) {
+    progressBar.style.width = `${(window.scrollY / height) * 100}%`;
+  }
 
-  document.querySelector(".header").classList.toggle("scrolled", window.scrollY > 50);
+  const header = document.querySelector(".header");
+  if (header) header.classList.toggle("scrolled", window.scrollY > 50);
 });
 
 document.addEventListener("mousemove", e => {
