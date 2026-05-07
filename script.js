@@ -96,13 +96,31 @@ function serviceCards(limit = services.length) {
     <div class="service-card zoom-in">
       <div class="service-img" style="background-image:url('${s[2]}')"></div>
       <div class="service-body">
-        <small>0${i + 1}.</small>
+        
         <h3>${s[0]}</h3>
         <p>${s[1]}</p>
       </div>
     </div>
   `).join("");
 }
+document.addEventListener("click", function (e) {
+  const startBtn = e.target.closest('a[href="#contact"]');
+
+  if (!startBtn) return;
+
+  e.preventDefault();
+
+  location.hash = "contact";
+
+  setTimeout(() => {
+    renderPage();
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }, 80);
+});
 
 function statsMarquee() {
   const item = `

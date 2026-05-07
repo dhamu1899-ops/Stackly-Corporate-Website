@@ -2863,3 +2863,139 @@ body.menu-open {
   }
 
 }
+
+/* =========================
+   MOBILE SERVICE SLIDER FIX
+========================= */
+
+.service-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  gap: 18px;
+  padding-bottom: 20px;
+}
+
+.service-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.service-card {
+  flex: 0 0 330px;
+  scroll-snap-align: center;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .service-slider {
+    gap: 14px;
+    padding-inline: 8px;
+  }
+
+  .service-card {
+    flex: 0 0 100%;
+    min-width: 100%;
+    max-width: 100%;
+    border-radius: 28px;
+  }
+
+  .service-img {
+    height: 220px;
+  }
+
+  .service-body {
+    padding: 24px 20px;
+  }
+
+  .service-body h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+
+  .service-body p {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .slider-actions {
+    margin-top: 24px;
+  }
+
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+
+  .service-card {
+    flex: 0 0 100%;
+    min-width: 100%;
+  }
+
+  .service-body h3 {
+    font-size: 18px;
+  }
+
+}
+/* =========================
+   SERVICE SLIDER FULL CARD FIX
+========================= */
+
+.service-slider-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.service-slider {
+  width: 100%;
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 10px 0 35px;
+}
+
+.service-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.service-card {
+  flex: 0 0 calc((100% - 66px) / 4);
+  min-width: calc((100% - 66px) / 4);
+  max-width: calc((100% - 66px) / 4);
+  scroll-snap-align: start;
+}
+
+/* Laptop */
+@media (max-width: 1200px) {
+  .service-card {
+    flex-basis: calc((100% - 44px) / 3);
+    min-width: calc((100% - 44px) / 3);
+    max-width: calc((100% - 44px) / 3);
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .service-card {
+    flex-basis: calc((100% - 22px) / 2);
+    min-width: calc((100% - 22px) / 2);
+    max-width: calc((100% - 22px) / 2);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .service-slider {
+    gap: 0;
+  }
+
+  .service-card {
+    flex: 0 0 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
