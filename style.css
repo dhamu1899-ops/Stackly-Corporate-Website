@@ -1761,3 +1761,480 @@ body.dark .header {
 }
 
 
+
+
+/* =========================================================
+   FINAL MOBILE RESPONSIVE + LOGO + FOOTER CENTER FIX
+   Paste this at the END of style.css
+========================================================= */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+.header {
+  z-index: 1000;
+}
+
+.logo img {
+  height: auto;
+  object-fit: contain;
+}
+
+.footer .logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.footer .logo img {
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 992px) {
+  .hero,
+  .about-premium,
+  .contact-grid,
+  .blog-detail-layout,
+  .grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero {
+    gap: 42px;
+  }
+
+  .hero-content,
+  .page-hero,
+  .section-title {
+    text-align: center;
+  }
+
+  .hero-buttons,
+  .stats-row {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  .header {
+    width: 100%;
+  }
+
+  .navbar {
+    height: 76px;
+    padding: 0 16px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* Increased header/reload logo size on mobile */
+  .header .logo img,
+  .navbar .logo img {
+    width: 155px !important;
+    max-width: 42vw;
+    height: auto !important;
+  }
+
+  .nav-actions {
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .circle-btn {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+  }
+
+  .menu-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-cta {
+    display: none !important;
+  }
+
+  .nav-links {
+    position: fixed !important;
+    top: 76px !important;
+    right: -100% !important;
+    left: auto !important;
+    width: min(86vw, 360px) !important;
+    height: calc(100dvh - 76px) !important;
+    padding: 34px 22px !important;
+    margin: 0 !important;
+    background: var(--bg) !important;
+    border-left: 1px solid var(--border);
+    border-top: 1px solid var(--border);
+    box-shadow: -24px 0 70px rgba(15, 23, 42, 0.18);
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 22px !important;
+    z-index: 9999 !important;
+    transition: right 0.35s ease !important;
+    overflow-y: auto;
+  }
+
+  .nav-links.show,
+  .nav-links.active {
+    right: 0 !important;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    list-style: none;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 12px 10px;
+    font-size: 19px !important;
+  }
+
+  .page {
+    padding-top: 76px;
+  }
+
+  main,
+  section,
+  .section,
+  .hero,
+  .page-hero,
+  .container,
+  .card,
+  .price-card,
+  .blog-card,
+  .service-card,
+  .contact-panel,
+  .form,
+  .article {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .hero {
+    min-height: auto !important;
+    padding: 60px 6% 54px !important;
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero h1,
+  .page-hero h1 {
+    font-size: clamp(32px, 9vw, 46px) !important;
+    line-height: 1.08;
+    letter-spacing: -1px;
+  }
+
+  .hero p,
+  .page-hero p {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .hero-img,
+  .about-main-img {
+    width: 100%;
+    height: auto !important;
+    min-height: 260px;
+    max-height: 360px;
+    object-fit: cover;
+  }
+
+  .float-card {
+    position: relative !important;
+    inset: auto !important;
+    margin: 14px auto 0;
+    max-width: 92%;
+  }
+
+  .grid-3,
+  .grid-4,
+  .about-feature-grid,
+  .pricing-grid,
+  .blog-grid,
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .section {
+    padding: 68px 6% !important;
+  }
+
+  .section-title h2,
+  .about-premium-content h2,
+  .cta h2,
+  .contact-panel h2 {
+    font-size: clamp(28px, 8vw, 36px) !important;
+  }
+
+  .service-card {
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .compare {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+  }
+
+  .compare table,
+  table {
+    min-width: 640px;
+  }
+
+  .footer {
+    text-align: center !important;
+    padding: 60px 6% 24px !important;
+  }
+
+  .footer-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    align-items: center !important;
+    justify-items: center !important;
+    text-align: center !important;
+  }
+
+  .footer-grid > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  /* Center footer logo and increase size */
+  .footer .logo {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
+    margin: 0 auto 18px !important;
+  }
+
+  .footer .logo img,
+  .footer-logo img {
+    width: 185px !important;
+    max-width: 70vw;
+    height: auto !important;
+    margin: 0 auto !important;
+  }
+
+  .socials {
+    justify-content: center !important;
+    align-items: center !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer h4,
+  .footer p,
+  .footer a {
+    text-align: center !important;
+  }
+
+  .cursor-glow {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    height: 72px;
+    padding: 0 12px !important;
+  }
+
+  .page {
+    padding-top: 72px;
+  }
+
+  .nav-links {
+    top: 72px !important;
+    width: 100% !important;
+    height: calc(100dvh - 72px) !important;
+  }
+
+  .header .logo img,
+  .navbar .logo img {
+    width: 145px !important;
+    max-width: 48vw;
+  }
+
+  .circle-btn {
+    width: 39px;
+    height: 39px;
+    min-width: 39px;
+    font-size: 17px;
+  }
+
+  .hero {
+    padding: 48px 5% 48px !important;
+  }
+
+  .hero-buttons .btn,
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .card,
+  .price-card,
+  .blog-card,
+  .form,
+  .chart-card,
+  .testimonial-card,
+  .article,
+  .contact-panel {
+    padding: 22px !important;
+    border-radius: 22px !important;
+  }
+
+  .footer .logo img,
+  .footer-logo img {
+    width: 175px !important;
+  }
+}
+
+/* =========================
+   LOADER FIX
+========================= */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  background: #0b1120;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  overflow: hidden;
+}
+
+.loader img {
+  width: 180px;
+  max-width: 80%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 20px;
+  animation: pulseLogo 1.8s infinite ease-in-out;
+}
+
+.loader p {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+  padding: 0 15px;
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+
+  .loader {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .loader img {
+    width: 150px;
+  }
+
+  .loader p {
+    font-size: 14px;
+  }
+}
+
+/* Logo animation */
+@keyframes pulseLogo {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+/* =========================
+   MOBILE LOADER LOGO SIZE
+========================= */
+
+.loader img {
+  width: 220px;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+
+  .loader img {
+    width: 240px;   /* Increased mobile logo size */
+    max-width: 90%;
+  }
+
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+
+  .loader img {
+    width: 260px;
+  }
+
+}
