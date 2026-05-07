@@ -3130,3 +3130,23 @@ body.menu-open {
     padding-top: 70px;
   }
 }
+
+/* Hide mobile CTA on desktop */
+.mobile-project-btn {
+  display: none;
+}
+
+/* Show inside hamburger menu */
+@media (max-width: 768px) {
+  .mobile-project-btn {
+    display: block;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .mobile-project-btn .btn {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+  }
+}
