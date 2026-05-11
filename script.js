@@ -203,7 +203,7 @@ function premiumAboutSection() {
             <div class="about-feature">✔ Growth Support</div>
           </div>
 
-          <a href="#about" class="btn">Know More</a>
+          <a href="#about" class="btn about-refresh">Know More</a>
         </div>
       </div>
     </section>
@@ -221,6 +221,19 @@ function refreshServicesPage() {
     });
   }, 80);
 }
+function refreshAboutPage() {
+  location.hash = "about";
+  renderPage();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+document.addEventListener("click", function(e) {
+  const aboutLink = e.target.closest(".about-refresh");
+  if (!aboutLink) return;
+
+  e.preventDefault();
+  refreshAboutPage();
+});
 
 document.querySelectorAll(".service-refresh").forEach(link => {
   link.addEventListener("click", function(e) {
@@ -485,6 +498,7 @@ function aboutPage() {
     </div>
   `;
 }
+
 
 function servicesPage() {
   return `
